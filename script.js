@@ -35,7 +35,7 @@ const collectEmployees = function() {
 
     let last = prompt(`Enter last name:`);
     
-    if (last === null){
+    if (last === null || last.trim() === ''){
       const confirmation = confirm(`Are you sure you would like to cancel?`);
       if (confirmation){
         cancelPrompt = true;
@@ -96,12 +96,14 @@ const displayAverageSalary = function(employeesArray) {
   }
   averageSal /= employeesArray.length;
   console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSal.toFixed(2)}`);
-  return averageSal;
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  const randomNumber = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[randomNumber];
+  console.log(`Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winnder!`)
 }
 
 /*
