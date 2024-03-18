@@ -5,7 +5,6 @@ let employeesArray = [];
 
 let cancelPrompt = false;
 
-// let loopCount = 0;
 
 function createEmployee(firstName, lastName, salary){
   
@@ -15,9 +14,9 @@ function createEmployee(firstName, lastName, salary){
 
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+  
   let cancelPrompt = false;
-  console.log(`Start of loop`)
+
   while (!cancelPrompt) {
     let first = prompt(`Enter first name:`);
 
@@ -28,7 +27,6 @@ const collectEmployees = function() {
         break;  
       }
       else{
-        console.log(`Restarting Loop`)
         continue;
       }
     }
@@ -42,7 +40,6 @@ const collectEmployees = function() {
         break;  
       }
       else{
-        console.log(`Restarting Loop`)
         continue;
       }
     }    
@@ -56,7 +53,6 @@ const collectEmployees = function() {
         break;  
       }
       else{
-        console.log(`Restarting Loop`)
         continue;
       }
     }
@@ -76,14 +72,8 @@ const collectEmployees = function() {
     if (!addMore) {
       cancelPrompt = true;
     }
-
-    // console.log(employeesArray);
-    // const currentEmployee = employeesArray[loopCount];
-    // console.log(currentEmployee.firstName);
-    // console.log(`Current loop count: ${loopCount}`);
-    // loopCount++;
   }
-  console.log(`end of loop`)
+
   return employeesArray;
 }
 
