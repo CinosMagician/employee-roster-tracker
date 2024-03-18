@@ -5,7 +5,7 @@ let employeesArray = [];
 
 let cancelPrompt = false;
 
-let loopCount = 0;
+// let loopCount = 0;
 
 function createEmployee(firstName, lastName, salary){
   
@@ -21,7 +21,7 @@ const collectEmployees = function() {
   while (!cancelPrompt) {
     let first = prompt(`Enter first name:`);
 
-    if (first === null){
+    if (first === null || first.trim() === ''){
       const confirmation = confirm(`Are you sure you would like to cancel?`);
       if (confirmation){
         cancelPrompt = true;
@@ -70,18 +70,33 @@ const collectEmployees = function() {
 
     let newEmployee = createEmployee(first, last, sal);
     employeesArray.push(newEmployee);
-    console.log(employeesArray);
-    const currentEmployee = employeesArray[loopCount];
-    console.log(currentEmployee.firstName);
-    console.log(`Current loop count: ${loopCount}`);
-    loopCount++;
+
+    let addMore = confirm(`Would you like to add another employee?`)
+
+    if (!addMore) {
+      cancelPrompt = true;
+    }
+
+    // console.log(employeesArray);
+    // const currentEmployee = employeesArray[loopCount];
+    // console.log(currentEmployee.firstName);
+    // console.log(`Current loop count: ${loopCount}`);
+    // loopCount++;
   }
   console.log(`end of loop`)
+  return employeesArray;
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  let averageSal = 0;
+  for (let i = 0; i < employeesArray.length; i++) {
+    averageSal += employeesArray[i].salary
+  }
+  averageSal /= employeesArray.length;
+  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSal.toFixed(2)}`);
+  return averageSal;
 }
 
 // Select a random employee
