@@ -3,7 +3,7 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 let employeesArray = [];
 
-const cancelPrompt = false;
+let cancelPrompt = false;
 
 let loopCount = 0;
 
@@ -16,28 +16,29 @@ function createEmployee(firstName, lastName, salary){
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
+  let cancelPrompt = false;
   console.log(`Start of loop`)
   while (!cancelPrompt) {
-    const first = prompt(`Enter first name:`);
-      console.log(first);
+    let first = prompt(`Enter first name:`);
+
     if (first === null){
       const confirmation = confirm(`Are you sure you would like to cancel?`);
       if (confirmation){
-        const cancelPrompt = true;
+        cancelPrompt = true;
         break;  
       }
       else{
         console.log(`Restarting Loop`)
         continue;
       }
-    }    
-    const last = prompt(`Enter last name:`);
-      console.log(last);
+    }
+
+    let last = prompt(`Enter last name:`);
     
     if (last === null){
       const confirmation = confirm(`Are you sure you would like to cancel?`);
       if (confirmation){
-        const cancelPrompt = true;
+        cancelPrompt = true;
         break;  
       }
       else{
@@ -46,20 +47,26 @@ const collectEmployees = function() {
       }
     }    
   
-    const sal = prompt(`Enter salary amount:`);
-      console.log(sal);
+    let sal = prompt(`Enter salary amount:`);
 
     if (sal === null){
       const confirmation = confirm(`Are you sure you would like to cancel?`);
       if (confirmation){
-        const cancelPrompt = true;
+        cancelPrompt = true;
         break;  
       }
       else{
         console.log(`Restarting Loop`)
         continue;
       }
-    }    
+    }
+
+    if (isNaN(sal)) {
+      sal = 0;
+    }
+    else {
+      sal = parseInt(sal)
+    }  
 
     let newEmployee = createEmployee(first, last, sal);
     employeesArray.push(newEmployee);
