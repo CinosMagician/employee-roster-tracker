@@ -1,4 +1,4 @@
-# employee-roster-tracker
+# Employee Roster Tracker
 
 Welcome to the Employee Payroll Tracker, Here you will be able to add your employees Names and Salary to a tracking sheet.
 
