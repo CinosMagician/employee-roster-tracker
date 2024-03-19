@@ -74,7 +74,7 @@ const collectEmployees = function() {
     }
     else {
       // This else statement is when the user has entered a number, and will convert the string into an intiger so that we can later use maths to add together and divide.
-      sal = parseInt(sal)
+      sal = parseFloat(sal)
     }  
 
     // This create a new variable called newEmployee which will be equal to the results of the fuction we created earlier.
